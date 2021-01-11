@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <limits.h>
 
 int	ft_atoi(const char *s1)
 {
@@ -38,6 +36,6 @@ int	ft_atoi(const char *s1)
 		i++;
 	}
 	if ((nb > LONG_MAX && neg > 0) || (nb - 1) > LONG_MAX)
-		nb = (neg > 0) ? 0 : 1;
+		nb = (neg > 0) ? 1 : 0;
 	return (nb * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 22:14:12 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 04:01:52 by laliao           ###   ########.fr       */
+/*   Updated: 2021/01/11 19:15:35 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct	s_list
 {
@@ -49,7 +50,7 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memset(void *ptr, int nb, size_t n);
 void			ft_putchar_fd(char c, int fd);
-void			ft_putendl(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
