@@ -38,7 +38,7 @@ static char		*ft_strrev(char *dest)
 	return (dest);
 }
 
-static int		ft_intlen(int n)
+static size_t	ft_intlen(int n)
 {
 	size_t		i;
 	long int	tmp;
@@ -68,7 +68,7 @@ char			*ft_itoa(int n)
 	i = 0;
 	tmp = ft_abs(n);
 	len = ft_intlen(n);
-	if (!(dest = malloc(sizeof(char*) * len + 1)))
+	if (!(dest = malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	while (tmp > 9)
 	{
