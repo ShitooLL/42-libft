@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 01:19:44 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 21:45:09 by laliao           ###   ########.fr       */
+/*   Updated: 2021/01/11 22:20:51 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_atoi(const char *s1)
 		i++;
 	}
 	if ((nb > LONG_MAX && neg > 0) || (nb - 1) > LONG_MAX)
-		nb = (neg > 0) ? 1 : 0;
+	{
+		nb = (neg > 0) ? -1 : 0;
+	}
 	return (nb * neg);
 }
