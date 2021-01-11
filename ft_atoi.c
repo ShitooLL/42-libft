@@ -35,7 +35,7 @@ int	ft_atoi(const char *s1)
 		nb = nb * 10 + s1[i] - '0';
 		i++;
 	}
-	if ((nb > LONG_MAX && neg > 0) || nb > LONG_MAX + 1)
+	if ((nb > LONG_MAX && neg > 0) || (nb - 1) > LONG_MAX)
 		nb = (neg > 0) ? -1 : 0;
 	return (nb * neg);
 }
