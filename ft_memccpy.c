@@ -30,7 +30,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		if (*tmpsrc == c)
 		{
 			return (dest + i);
-			dest[i] = '\0';
+			(dest + i + 1) = '\0';
 		}
 		tmpdest++;
 		tmpsrc++;
