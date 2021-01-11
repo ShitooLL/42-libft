@@ -6,7 +6,7 @@
 #    By: laliao <laliao@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/10 03:16:13 by laliao            #+#    #+#              #
-#    Updated: 2021/01/11 15:28:01 by laliao           ###   ########.fr        #
+#    Updated: 2021/01/11 19:59:43 by laliao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,7 @@ fclean:		clean
 
 re:			fclean all
 
-bonus:		fclean ${OBJS} ${OBJS_BONUS}
+bonus:		${OBJS} ${OBJS_BONUS}
 			ar rcs ${NAME} ${OBJS} ${OBJS_BONUS}
-
-so:
-			${CC} -c -fPIC ${FLAGS} ${SRCS}
-			${CC} -shared -o libft.so ${OBJ}
 
 .PHONY : all clean fclean re bonus
