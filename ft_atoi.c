@@ -18,7 +18,6 @@ int	ft_atoi(const char *s1)
 	int					neg;
 	unsigned long int	nb;
 
-	nb = 0;
 	neg = 1;
 	i = 0;
 	while (s1[i] && (s1[i] == '\t' || s1[i] == '\f' || s1[i] == '\v'
@@ -30,14 +29,13 @@ int	ft_atoi(const char *s1)
 			neg = -neg;
 		i++;
 	}
+	nb = 0;
 	while (s1[i] && s1[i] >= '0' && s1[i] <= '9')
 	{
 		nb = nb * 10 + s1[i] - '0';
 		i++;
 	}
-	if ((nb > LONG_MAX && neg > 0) || (nb - 1) > LONG_MAX)
-	{
+	if ((nb > LONG_MAX && neg > 0) || nb > LONG_MAX + 1)
 		nb = (neg > 0) ? -1 : 0;
-	}
 	return (nb * neg);
 }
