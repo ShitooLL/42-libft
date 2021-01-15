@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 03:27:59 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:39:30 by laliao           ###   ########.fr       */
+/*   Updated: 2021/01/15 03:18:05 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,33 @@ static int	ft_countwords(char const *s, char c)
 	word = 0;
 	while (s[i])
 	{
+		if (s[i] != c)
+			word = 1;
 		if ((s[i] == c || s[i + 1] == '\0') && word == 1)
 		{
 			count++;
 			word = 0;
 		}
-		else if (s[i] != c)
-			word = 1;
 		i++;
 	}
 	return (count);
 }
 
-static void	ft_strsplit(char **dest, char const *s, char c)
+static void	*ft_free_split(char **dest, size_t words)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < words)
+	{
+		free(dest[i]);
+		i++;
+	}
+	free(dest);
+	return (NULL);
+}
+
+static void	*ft_strsplit(char **dest, char const *s, char c)
 {
 	size_t	i;
 	size_t	start;
@@ -52,13 +66,13 @@ static void	ft_strsplit(char **dest, char const *s, char c)
 			end = 0;
 			while (s[start + end] != c && s[start + end])
 				end++;
-			if ((dest[i] = ft_substr(s, start, end)))
-			{
-			}
+			if (!(dest[i] = ft_substr(s, start, end)))
+				return (ft_free_split(dest, ft_countwords(s, c) + 1));
 			i++;
 			start += end;
 		}
 	}
+	return (dest);
 }
 
 char		**ft_split(char const *s, char c)
@@ -69,7 +83,8 @@ char		**ft_split(char const *s, char c)
 		return (NULL);
 	if (!(dest = (char**)malloc(sizeof(char*) * ft_countwords(s, c) + 1)))
 		return (NULL);
-	ft_strsplit(dest, s, c);
-	dest[ft_countwords(s, c)] = NULL;
+	if (!(dest = ft_strsplit(dest, s, c)))
+		return (NULL);
+	dest[ft_countwords(s, c)] = 0;
 	return (dest);
 }
