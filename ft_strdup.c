@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 23:42:20 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:40:07 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:39:06 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = 0;
-	if (!(dest = malloc(sizeof(*s) * ft_strlen(s) + 1)))
+	dest = malloc(sizeof(*s) * ft_strlen(s) + 1);
+	if (!dest)
 		return (NULL);
 	while (s[i])
 	{

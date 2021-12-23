@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 02:58:32 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:17:18 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:41:44 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*tmp;
 
-	if (!(tmp = malloc(sizeof(*tmp))))
+	tmp = malloc(sizeof(*tmp));
+	if (!tmp)
 		return (NULL);
 	tmp[0].content = content;
 	tmp[0].next = NULL;

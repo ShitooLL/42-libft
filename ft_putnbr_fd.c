@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 01:07:40 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:31:02 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:36:31 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_nbrprc(long int n, int fd)
 		ft_putchar_fd(n + '0', fd);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long int	tmp;
 

@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 02:28:24 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:43:50 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:42:48 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_isset(char c, char const *set)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -42,7 +42,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (j > i && ft_isset(s1[j - 1], set))
 		j--;
-	if (!(dest = malloc(sizeof(*s1) * (j - i) + 1)))
+	dest = malloc(sizeof(*s1) * (j - i) + 1);
+	if (!dest)
 		return (NULL);
 	while (k + i < j)
 	{

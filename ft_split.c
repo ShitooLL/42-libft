@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 03:27:59 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/15 03:18:05 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:34:55 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static void	*ft_strsplit(char **dest, char const *s, char c)
 			end = 0;
 			while (s[start + end] != c && s[start + end])
 				end++;
-			if (!(dest[i] = ft_substr(s, start, end)))
+			dest[i] = ft_substr(s, start, end);
+			if (!(dest[i]))
 				return (ft_free_split(dest, ft_countwords(s, c) + 1));
 			i++;
 			start += end;
@@ -75,15 +76,17 @@ static void	*ft_strsplit(char **dest, char const *s, char c)
 	return (dest);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dest;
 
 	if (!s)
 		return (NULL);
-	if (!(dest = (char**)malloc(sizeof(char*) * ft_countwords(s, c) + 1)))
+	dest = (char **)malloc(sizeof(char *) * ft_countwords(s, c) + 1);
+	if (!dest)
 		return (NULL);
-	if (!(dest = ft_strsplit(dest, s, c)))
+	dest = ft_strsplit(dest, s, c);
+	if (!dest)
 		return (NULL);
 	dest[ft_countwords(s, c)] = 0;
 	return (dest);

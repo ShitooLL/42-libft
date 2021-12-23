@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 22:14:12 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 19:15:35 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 02:03:54 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <fcntl.h>
 
-typedef struct	s_list
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4000
+# endif
+
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -40,7 +45,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-				void (*del)(void *));
+					void (*del)(void *));
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -68,5 +73,11 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+char			*ft_read_lines(char *s_line, int fd);
+char			*ft_get_read_line(char *s);
+char			*ft_remove_read_line(char *s);
+char			*get_next_line(int fd);
+char			*ft_strjoin_gnl(char *left_str, char *buff);
+char			*ft_strchr_gnl(char *s, int c);
 
 #endif

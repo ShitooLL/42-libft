@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 21:56:35 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:27:43 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:36:11 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static long int	ft_abs(int n)
 	return (nb);
 }
 
-static char		*ft_strrev(char *dest)
+static char	*ft_strrev(char *dest)
 {
 	size_t		i;
 	char		tmp;
@@ -58,7 +58,7 @@ static size_t	ft_intlen(int n)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	size_t		i;
 	size_t		len;
@@ -68,7 +68,8 @@ char			*ft_itoa(int n)
 	i = 0;
 	tmp = ft_abs(n);
 	len = ft_intlen(n);
-	if (!(dest = malloc(sizeof(char) * len + 1)))
+	dest = malloc(sizeof(char) * len + 1);
+	if (!dest)
 		return (NULL);
 	while (tmp > 9)
 	{

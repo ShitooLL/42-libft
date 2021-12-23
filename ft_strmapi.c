@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 23:22:47 by laliao            #+#    #+#             */
-/*   Updated: 2021/01/11 03:41:45 by laliao           ###   ########.fr       */
+/*   Updated: 2021/12/23 01:36:54 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	if (!(dest = ft_strdup(s)))
+	dest = ft_strdup(s);
+	if (!dest)
 		return (NULL);
 	while (s[i])
 	{
