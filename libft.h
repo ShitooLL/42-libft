@@ -6,7 +6,7 @@
 /*   By: laliao <laliao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 22:14:12 by laliao            #+#    #+#             */
-/*   Updated: 2021/12/23 02:03:54 by laliao           ###   ########.fr       */
+/*   Updated: 2023/02/23 06:49:53 by laliao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ size_t			ft_strlen(const char *s);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_strnstr(const char *s1, const char *s2, size_t len);
+char			*ft_strndup(const char *s, int n);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
